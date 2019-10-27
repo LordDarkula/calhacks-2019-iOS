@@ -10,11 +10,15 @@ import Foundation
 import UIKit
 
 class Friend: Identifiable {
+    var id: ObjectIdentifier
+    var friendId: String
     var name: String
     var distance: Double
     var imagePath: String
     var image: UIImage
-    init(name: String, distance: Double, imagePath: String) {
+    init(friendId: String, name: String, distance: Double, imagePath: String) {
+        id = ObjectIdentifier(Int.self)
+        self.friendId = friendId
         self.name = name
         self.distance = distance
         self.imagePath = imagePath

@@ -16,7 +16,7 @@ class ARViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     
     var sceneLocationView = SceneLocationView()
-    var friendId = 1
+    var friendId: String = ""
     var clock = 0
     var distanceLabel: UILabel!
 
@@ -75,11 +75,13 @@ class ARViewController: UIViewController, CLLocationManagerDelegate {
         ]
         var url = "http://34.94.220.156/request_user_loc"
         JSONData.POSTData(parameters: parameters, url: url,completion: { data in (JSON).self
-            let requested_lat = data["requested_user_lat"].double!
-            let requested_long = data["requested_user_long"].double!
+            let requested_lat = data["requested_user_lat"].double ?? locValue.latitude
+            let requested_long = data["requested_user_long"].double ??  locValue.longitude
             let distance = data["dist"].double!
+            print(distance)
             self.distanceLabel.text = String(format: "%.2f", distance) + "m"
             let bearing = data["bearing"].double!
+            
             if self.clock % 10 == 0
             {
                 self.updatePath(current_lat: locValue.latitude, current_long: locValue.longitude, requested_lat: requested_lat, requested_long: requested_long, bearing: bearing)

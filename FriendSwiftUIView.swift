@@ -12,17 +12,19 @@ struct FriendSwiftUIView: View {
     @ObservedObject var fetcher = FetchFriends()
     
     var body: some View {
-        List(fetcher.friends) { friend in
+        NavigationView {
+        List(fetcher.friends) { friend  in
             Image(uiImage: friend.image)
-            VStack(alignment: .leading) {
-                Text(friend.name)
-                Text(String(format: "%.2f", friend.distance) + "m")
+            Text(verbatim: friend.name)
+            NavigationLink(destination: ARSwiftUIView(friendId: friend.friendId)) {
+                Text(verbatim: String(format: "%.2f", friend.distance) + "m")
                     .font(.subheadline)
             }
+            }.navigationBarTitle("FRIENDS")
         }
     }
 }
-
+//
 //struct FriendSwiftUIView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        let friends = [
@@ -33,3 +35,4 @@ struct FriendSwiftUIView: View {
 //        return FriendSwiftUIView(friends:friends)
 //    }
 //}
+

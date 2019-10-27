@@ -44,7 +44,7 @@ class FetchFriends: NSObject, ObservableObject, CLLocationManagerDelegate {
         JSONData.POSTData(parameters: parameters, url: url,completion: { data in (JSON).self
             self.friends = [Friend]()
             for raw in data["friends"].arrayValue {
-                var friend = Friend(name: raw["username"].string!, distance: raw["dist"].double!, imagePath: raw["image"].string!)
+                let friend = Friend(friendId: String(raw["id"].int!), name: raw["username"].string!, distance: raw["dist"].double!, imagePath: raw["image"].string!)
                 self.friends.append(friend)
             }
         })

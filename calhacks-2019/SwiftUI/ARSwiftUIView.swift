@@ -12,11 +12,12 @@ import SwiftyJSON
 struct ARViewControllerWrapper: UIViewControllerRepresentable {
 
     typealias UIViewControllerType = ARViewController
-
+    var friendId: String
 
     func makeUIViewController(context: UIViewControllerRepresentableContext<ARViewControllerWrapper>) -> ARViewControllerWrapper.UIViewControllerType {
-        return ARViewController()
-         
+        let ar = ARViewController()
+        ar.friendId = friendId
+        return ar
     }
 
     func updateUIViewController(_ uiViewController: ARViewControllerWrapper.UIViewControllerType, context: UIViewControllerRepresentableContext<ARViewControllerWrapper>) {
@@ -25,15 +26,16 @@ struct ARViewControllerWrapper: UIViewControllerRepresentable {
 }
 
 struct ARSwiftUIView: View {
+    var friendId: String
     
     
     var body: some View {
-        ARViewControllerWrapper()
+        ARViewControllerWrapper(friendId: friendId)
     }
 }
 
-struct ARSwiftUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        ARSwiftUIView()
-    }
-}
+//struct ARSwiftUIView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ARSwiftUIView(friedId)
+//    }
+//}
