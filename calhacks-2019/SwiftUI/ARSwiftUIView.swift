@@ -9,12 +9,18 @@
 import SwiftUI
 
 struct ARViewControllerWrapper: UIViewControllerRepresentable {
+    
+    let phoneNumber: String
+    let username: String
 
     typealias UIViewControllerType = ARViewController
 
 
     func makeUIViewController(context: UIViewControllerRepresentableContext<ARViewControllerWrapper>) -> ARViewControllerWrapper.UIViewControllerType {
-        return ARViewController()
+        let arVC =  ARViewController()
+        arVC.phoneNumber = phoneNumber
+        arVC.username = username
+        return arVC
     }
 
     func updateUIViewController(_ uiViewController: ARViewControllerWrapper.UIViewControllerType, context: UIViewControllerRepresentableContext<ARViewControllerWrapper>) {
@@ -23,13 +29,16 @@ struct ARViewControllerWrapper: UIViewControllerRepresentable {
 }
 
 struct ARSwiftUIView: View {
+    let phoneNumber: String
+    let username: String
+    
     var body: some View {
-        ARViewControllerWrapper()
+        ARViewControllerWrapper(phoneNumber: phoneNumber, username: username)
     }
 }
 
 struct ARSwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        ARSwiftUIView()
+        ARSwiftUIView(phoneNumber: "", username: "")
     }
 }

@@ -20,7 +20,7 @@ struct ContentView: View {
 .frame(maxWidth: 200, maxHeight: 75)
             TextField("Enter your username", text: $username)
                 .frame(maxWidth: 200, maxHeight: 75)
-            NavigationLink(destination: ARSwiftUIView()) {
+            NavigationLink(destination: ARSwiftUIView(phoneNumber: phone, username: username)) {
                 Text("Sign In")
                     .fontWeight(.bold)
                     .padding()
