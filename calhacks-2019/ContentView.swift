@@ -16,16 +16,15 @@ struct ContentView: View {
     var body: some View {
         VStack{
             TextField("Enter your phone number", text: $phone)
-                .frame(maxWidth: 200)
+                .frame(maxWidth: 200, maxHeight: 75)
             TextField("Enter your password", text: $password)
-                .frame(maxWidth: 200)
+                .frame(maxWidth: 200, maxHeight: 75)
             Button(action: {
                //Login action
              
             }) {
                 Text("Sign In")
                     .fontWeight(.bold)
-                    .font(.title)
                     .padding()
                     .background(Color.green)
                     .cornerRadius(40)
