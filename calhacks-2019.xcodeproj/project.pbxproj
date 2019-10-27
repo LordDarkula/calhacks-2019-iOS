@@ -12,6 +12,7 @@
 		872A9D2623659640000DCD23 /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872A9D2523659640000DCD23 /* LogIn.swift */; };
 		872A9D2823659815000DCD23 /* FriendSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872A9D2723659815000DCD23 /* FriendSwiftUIView.swift */; };
 		872A9D2A23659C64000DCD23 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872A9D2923659C64000DCD23 /* Friend.swift */; };
+		872A9D2D2365A57A000DCD23 /* FetchFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872A9D2C2365A57A000DCD23 /* FetchFriends.swift */; };
 		877A75172365336D00CAF8E0 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877A75162365336D00CAF8E0 /* ARViewController.swift */; };
 		87B2EE2723650C64000BBF3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B2EE2623650C64000BBF3C /* AppDelegate.swift */; };
 		87B2EE2923650C64000BBF3C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B2EE2823650C64000BBF3C /* SceneDelegate.swift */; };
@@ -30,6 +31,7 @@
 		872A9D2523659640000DCD23 /* LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
 		872A9D2723659815000DCD23 /* FriendSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSwiftUIView.swift; sourceTree = SOURCE_ROOT; };
 		872A9D2923659C64000DCD23 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		872A9D2C2365A57A000DCD23 /* FetchFriends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchFriends.swift; sourceTree = "<group>"; };
 		877A75162365336D00CAF8E0 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		87B2EE2323650C64000BBF3C /* calhacks-2019.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "calhacks-2019.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87B2EE2623650C64000BBF3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			children = (
 				04D4543E236572060021ED95 /* ReturnJSON.swift */,
 				872A9D2523659640000DCD23 /* LogIn.swift */,
+				872A9D2C2365A57A000DCD23 /* FetchFriends.swift */,
 			);
 			path = Backend;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				87B2EE2723650C64000BBF3C /* AppDelegate.swift in Sources */,
 				87B2EE2923650C64000BBF3C /* SceneDelegate.swift in Sources */,
 				872A9D22236554A0000DCD23 /* ARSwiftUIView.swift in Sources */,
+				872A9D2D2365A57A000DCD23 /* FetchFriends.swift in Sources */,
 				872A9D2623659640000DCD23 /* LogIn.swift in Sources */,
 				87B2EE2B23650C64000BBF3C /* ContentView.swift in Sources */,
 				877A75172365336D00CAF8E0 /* ARViewController.swift in Sources */,

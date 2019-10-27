@@ -18,7 +18,6 @@ struct ARViewControllerWrapper: UIViewControllerRepresentable {
 
 
     func makeUIViewController(context: UIViewControllerRepresentableContext<ARViewControllerWrapper>) -> ARViewControllerWrapper.UIViewControllerType {
-        Login.login(number: phoneNumber, username: username)
         return ARViewController()
          
     }

@@ -9,26 +9,27 @@
 import SwiftUI
 
 struct FriendSwiftUIView: View {
-    var friends: [Friend]
+    @ObservedObject var fetcher = FetchFriends()
+    
     var body: some View {
-        List(0 ..< friends.count) { item in
-            Image(uiImage: self.friends[item].image)
+        List(fetcher.friends) { friend in
+            Image(uiImage: friend.image)
             VStack(alignment: .leading) {
-                Text(self.friends[item].name)
-                Text(String(format: "%.2f", self.friends[item].distance) + "m")
+                Text(friend.name)
+                Text(String(format: "%.2f", friend.distance) + "m")
                     .font(.subheadline)
             }
         }
     }
 }
 
-struct FriendSwiftUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        let friends = [
-            Friend(name: "Rohan", distance: 2.0, imagePath: "https://randomuser.me/api/portraits/thumb/men/0.jpg"),
-            Friend(name: "Vikranth", distance: 2.3, imagePath: "https://randomuser.me/api/portraits/thumb/men/0.jpg")
-            
-        ]
-        return FriendSwiftUIView(friends:friends)
-    }
-}
+//struct FriendSwiftUIView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let friends = [
+//            Friend(name: "Rohan", distance: 2.0, imagePath: "https://randomuser.me/api/portraits/thumb/men/0.jpg"),
+//            Friend(name: "Vikranth", distance: 2.3, imagePath: "https://randomuser.me/api/portraits/thumb/men/0.jpg")
+//
+//        ]
+//        return FriendSwiftUIView(friends:friends)
+//    }
+//}

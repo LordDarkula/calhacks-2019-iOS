@@ -7,10 +7,12 @@
 //
 
 import SwiftUI
+import SwiftyJSON
 
 struct ContentView: View {
     @State var phone_number: String = ""
     @State var username: String = ""
+    @State private var action: Int? = 0
     var body: some View {
         NavigationView{
         VStack{
@@ -19,8 +21,9 @@ struct ContentView: View {
 .frame(maxWidth: 200, maxHeight: 75)
             TextField("Enter your username", text: $username)
                 .frame(maxWidth: 200, maxHeight: 75)
-            NavigationLink(destination: ARSwiftUIView(phoneNumber: phone_number, username: username)) {
- 
+            NavigationLink(destination: FriendSwiftUIView(), tag: 1, selection: $action) {
+                EmptyView()
+            }
                 Text("Sign In")
                     .fontWeight(.bold)
                     .padding()
@@ -28,12 +31,16 @@ struct ContentView: View {
                     .cornerRadius(40)
                     .foregroundColor(.white)
                     .padding(10)
-                .overlay(RoundedRectangle(cornerRadius:40).stroke(Color.green, lineWidth: 5))
+                    .overlay(RoundedRectangle(cornerRadius:40).stroke(Color.green, lineWidth: 5)).onTapGesture {
+                        Login.login(number: self.phone_number, username: self.username, completion: { data in (JSON).self
+                                self.action = 1
+                            
+                        })
+                }
                 
                 
             }
             
-            }
         }
     }
 }

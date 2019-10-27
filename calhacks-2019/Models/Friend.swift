@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Friend {
+class Friend: Identifiable {
     var name: String
     var distance: Double
     var imagePath: String

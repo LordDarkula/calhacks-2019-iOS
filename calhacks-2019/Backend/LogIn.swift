@@ -10,19 +10,20 @@ import Foundation
 import SwiftyJSON
 
 class Login {
-    static func login(number: String, username: String) {
+    static func login(number: String, username: String, completion: @escaping (_ json: JSON) -> Void) {
         let parameters = [
             "username": username,
             "phone_number": number
         ]
         let url = "http://34.94.220.156/create_user"
         JSONData.POSTData(parameters: parameters, url: url,completion: { data in (JSON).self
-            let ID = String(data["id"].int ?? -1)
+            let ID = String(data["id"].int ?? -2)
             // Do any additional setup after loading the view
             
             print("id: \(ID)")
             //  any additional setup after loading the view.
             UserDefaults.standard.set(ID, forKey: "id")
+            completion(data)
             
         })
     }
