@@ -1,2 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-calhacks-2019/Pods-calhacks-2019-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/ARCL/ARCL.framework
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework

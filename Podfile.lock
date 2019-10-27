@@ -1,16 +1,24 @@
 PODS:
+  - Alamofire (5.0.0-rc.3)
   - ARCL (1.2.1)
+  - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.0.0-rc.3)
   - ARCL
+  - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - ARCL
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
   ARCL: d1a534afb4d5b8ff5c51c5cfe23bb998df36c606
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 92b3d758391ec52f87ba9bb6838cf1dd0d84d3a4
+PODFILE CHECKSUM: 67a05af5bae6d16fa5618fa514c68b942e0cf845
 
 COCOAPODS: 1.8.4

@@ -401,7 +401,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"calhacks-2019/Preview Content\"";
 				DEVELOPMENT_TEAM = 99ZJBYWFM2;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "calhacks-2019/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/calhacks-2019/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -422,7 +422,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"calhacks-2019/Preview Content\"";
 				DEVELOPMENT_TEAM = 99ZJBYWFM2;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "calhacks-2019/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/calhacks-2019/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

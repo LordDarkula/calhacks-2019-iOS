@@ -7,5 +7,7 @@ target 'calhacks-2019' do
 
   # Pods for calhacks-2019
   pod 'ARCL'
+  pod 'Alamofire', '~> 5.0.0-rc.3'
+  pod 'SwiftyJSON', '~> 4.0'
 
 end

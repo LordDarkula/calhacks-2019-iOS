@@ -12,12 +12,12 @@ import SwiftUI
 
 struct ContentView: View {
     @State var phone: String = ""
-    @State var password: String = ""
+    @State var username: String = ""
     var body: some View {
         VStack{
             TextField("Enter your phone number", text: $phone)
                 .frame(maxWidth: 200, maxHeight: 75)
-            TextField("Enter your password", text: $password)
+            TextField("Enter your username", text: $username)
                 .frame(maxWidth: 200, maxHeight: 75)
             Button(action: {
                //Login action
