@@ -10,12 +10,15 @@ import UIKit
 import ARCL
 import CoreLocation
 import SwiftyJSON
+import MapKit
 
 class ARViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     
     var sceneLocationView = SceneLocationView()
-    var friendId = 0
+    var friendId = 1
+    var clock = 0
+    var distanceLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +26,12 @@ class ARViewController: UIViewController, CLLocationManagerDelegate {
         
         self.sceneLocationView.run()
         self.view.addSubview(self.sceneLocationView)
+        
+        distanceLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+        distanceLabel.center = CGPoint(x: 80, y: 20)
+        distanceLabel.textAlignment = .center
+        distanceLabel.text = "I'm a test label"
+        self.view.addSubview(distanceLabel)
         
         // Ask for Authorisation from the User.
         self.locationManager.requestAlwaysAuthorization()
@@ -43,14 +52,14 @@ class ARViewController: UIViewController, CLLocationManagerDelegate {
         request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: current_lat, longitude: current_long), addressDictionary: nil))
         request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: requested_lat, longitude: requested_long), addressDictionary: nil))
         request.requestsAlternateRoutes = false
-        request.transportType = .autombile
+        request.transportType = .walking
         
         let directions = MKDirections(request: request)
         directions.calculate { [unowned self] response, error in
             guard let unwrappedResponse = response else { return }
             let routes = unwrappedResponse.routes
             self.sceneLocationView.removeAllNodes()
-            self.sceneLocationView.addRoutes(routes)
+            self.sceneLocationView.addRoutes(routes: routes)
         }
         
     }
@@ -62,15 +71,22 @@ class ARViewController: UIViewController, CLLocationManagerDelegate {
             "current_user_id": UserDefaults.standard.string(forKey: "id"),
             "current_user_lat": String(locValue.latitude),
             "current_user_long": String(locValue.longitude),
-            "requested_user_id": self.friendId
+            "requested_user_id": String(self.friendId)
         ]
         var url = "http://34.94.220.156/request_user_loc"
         JSONData.POSTData(parameters: parameters, url: url,completion: { data in (JSON).self
             let requested_lat = data["requested_user_lat"].double!
             let requested_long = data["requested_user_long"].double!
+            let distance = data["dist"].double!
+            self.distanceLabel.text = String(format: "%.2f", distance) + "m"
             let bearing = data["bearing"].double!
+            if self.clock % 10 == 0
+            {
+                self.updatePath(current_lat: locValue.latitude, current_long: locValue.longitude, requested_lat: requested_lat, requested_long: requested_long, bearing: bearing)
+                self.clock = 0
+            }
             
-            self.updatePath(locValue.latitude, locValue.longitude, requested_lat, requested_long, bearing)
+            self.clock += 1
         })
         
         

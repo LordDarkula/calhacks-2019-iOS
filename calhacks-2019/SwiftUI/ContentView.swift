@@ -21,7 +21,7 @@ struct ContentView: View {
 .frame(maxWidth: 200, maxHeight: 75)
             TextField("Enter your username", text: $username)
                 .frame(maxWidth: 200, maxHeight: 75)
-            NavigationLink(destination: FriendSwiftUIView(), tag: 1, selection: $action) {
+            NavigationLink(destination: ARSwiftUIView(), tag: 1, selection: $action) {
                 EmptyView()
             }
                 Text("Sign In")

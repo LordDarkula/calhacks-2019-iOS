@@ -10,9 +10,6 @@ import SwiftUI
 import SwiftyJSON
 
 struct ARViewControllerWrapper: UIViewControllerRepresentable {
-    
-    let phoneNumber: String
-    let username: String
 
     typealias UIViewControllerType = ARViewController
 
@@ -28,16 +25,15 @@ struct ARViewControllerWrapper: UIViewControllerRepresentable {
 }
 
 struct ARSwiftUIView: View {
-    let phoneNumber: String
-    let username: String
+    
     
     var body: some View {
-        ARViewControllerWrapper(phoneNumber: phoneNumber, username: username)
+        ARViewControllerWrapper()
     }
 }
 
 struct ARSwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        ARSwiftUIView(phoneNumber: "", username: "")
+        ARSwiftUIView()
     }
 }
