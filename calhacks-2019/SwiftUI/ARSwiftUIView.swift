@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SwiftyJSON
 
 struct ARViewControllerWrapper: UIViewControllerRepresentable {
     
@@ -17,10 +18,9 @@ struct ARViewControllerWrapper: UIViewControllerRepresentable {
 
 
     func makeUIViewController(context: UIViewControllerRepresentableContext<ARViewControllerWrapper>) -> ARViewControllerWrapper.UIViewControllerType {
-        let arVC =  ARViewController()
-        arVC.phoneNumber = phoneNumber
-        arVC.username = username
-        return arVC
+        Login.login(number: phoneNumber, username: username)
+        return ARViewController()
+         
     }
 
     func updateUIViewController(_ uiViewController: ARViewControllerWrapper.UIViewControllerType, context: UIViewControllerRepresentableContext<ARViewControllerWrapper>) {

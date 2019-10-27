@@ -14,29 +14,12 @@ import SwiftyJSON
 class ARViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     
-    var phoneNumber: String = ""
-    var username: String = ""
-    var ID = ""
-    
     var sceneLocationView = SceneLocationView()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let parameters = [
-            "username": username,
-            "phone_number": phoneNumber
-        ]
-        let url = "http://34.94.220.156/create_user"
-        JSONData.POSTData(parameters: parameters, url: url,completion: { data in (JSON).self
-            let ID = String(data["id"].int ?? -1)
-            // Do any additional setup after loading the view
-            
-            print("id: \(ID)")
-            //  any additional setup after loading the view.
-            UserDefaults.standard.set(ID, forKey: "id")
-            
-        })
+       
         
         self.sceneLocationView.run()
         self.view.addSubview(self.sceneLocationView)
