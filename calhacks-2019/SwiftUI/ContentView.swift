@@ -12,15 +12,15 @@ struct ContentView: View {
     @State var phone_number: String = ""
     @State var username: String = ""
     var body: some View {
+        NavigationView{
         VStack{
+
             TextField("Enter your phone number", text: $phone_number)
-                .frame(maxWidth: 200, maxHeight: 75)
+.frame(maxWidth: 200, maxHeight: 75)
             TextField("Enter your username", text: $username)
                 .frame(maxWidth: 200, maxHeight: 75)
-            Button(action: {
-               //Login action
-                RequestData.sendLoginInfo(username: self.username, phone: self.phone_number)
-            }) {
+            NavigationLink(destination: ARSwiftUIView()) {
+
                 Text("Sign In")
                     .fontWeight(.bold)
                     .padding()
@@ -33,7 +33,7 @@ struct ContentView: View {
                 
             }
             
-            
+            }
         }
     }
 }

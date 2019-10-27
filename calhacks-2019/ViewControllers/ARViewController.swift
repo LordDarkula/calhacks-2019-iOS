@@ -17,7 +17,7 @@ class ARViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("ARView loaded")
         // Do any additional setup after loading the view.
         sceneLocationView.run()
         view.addSubview(sceneLocationView)
