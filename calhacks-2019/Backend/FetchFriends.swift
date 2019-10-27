@@ -14,7 +14,7 @@ class FetchFriends: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     @Published var friends = [Friend]()
     let locationManager = CLLocationManager()
-    
+    var clock: Int = 0
     override init() {
         super.init()
         if UserDefaults.standard.string(forKey: "id") != "-1" {
@@ -44,6 +44,9 @@ class FetchFriends: NSObject, ObservableObject, CLLocationManagerDelegate {
         JSONData.POSTData(parameters: parameters, url: url,completion: { data in (JSON).self
             self.friends = [Friend]()
             for raw in data["friends"].arrayValue {
+                print(raw["id"].int)
+                print(raw["username"].string)
+                print(raw["dist"].double)
                 let friend = Friend(friendId: String(raw["id"].int!), name: raw["username"].string!, distance: raw["dist"].double!, imagePath: raw["image"].string!)
                 self.friends.append(friend)
             }
@@ -62,10 +65,13 @@ class FetchFriends: NSObject, ObservableObject, CLLocationManagerDelegate {
         JSONData.POSTData(parameters: parameters, url: url,completion: { data in (JSON).self
             let status = String(data["status"].int ?? -1)
             // Do any additional setup after loading the view
-            
+            self.clock += 1
             print("status \(status)")
             //  any additional setup after loading the view.
-            self.load()
+            if(self.clock % 10 == 0) {
+//                self.load()
+                self.clock = 0
+            }
             
         })
         

@@ -30,7 +30,7 @@ class ARViewController: UIViewController, CLLocationManagerDelegate {
         distanceLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
         distanceLabel.center = CGPoint(x: 80, y: 20)
         distanceLabel.textAlignment = .center
-        distanceLabel.text = "I'm a test label"
+        distanceLabel.text = "0.1m"
         self.view.addSubview(distanceLabel)
         
         // Ask for Authorisation from the User.
@@ -77,10 +77,12 @@ class ARViewController: UIViewController, CLLocationManagerDelegate {
         JSONData.POSTData(parameters: parameters, url: url,completion: { data in (JSON).self
             let requested_lat = data["requested_user_lat"].double ?? locValue.latitude
             let requested_long = data["requested_user_long"].double ??  locValue.longitude
-            let distance = data["dist"].double!
+            let distance = data["dist"].double ?? 0.1
             print(distance)
-            self.distanceLabel.text = String(format: "%.2f", distance) + "m"
-            let bearing = data["bearing"].double!
+            if distance < 1000.0 {
+                self.distanceLabel.text = String(format: "%.2f", distance) + "m"
+            }
+            let bearing = data["bearing"].double ?? 120
             
             if self.clock % 10 == 0
             {

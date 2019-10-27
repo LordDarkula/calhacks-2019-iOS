@@ -89,8 +89,8 @@
 		877A7518236549E400CAF8E0 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				872A9D2723659815000DCD23 /* FriendSwiftUIView.swift */,
 				872A9D21236554A0000DCD23 /* ARSwiftUIView.swift */,
+				872A9D2723659815000DCD23 /* FriendSwiftUIView.swift */,
 				87B2EE2823650C64000BBF3C /* SceneDelegate.swift */,
 				87B2EE2A23650C64000BBF3C /* ContentView.swift */,
 			);
