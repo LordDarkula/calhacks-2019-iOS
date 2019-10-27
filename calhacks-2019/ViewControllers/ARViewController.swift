@@ -11,12 +11,15 @@ import ARCL
 import CoreLocation
 import SwiftyJSON
 
-class ARViewController: UIViewController {
+class ARViewController: UIViewController, CLLocationManagerDelegate {
+    let locationManager = CLLocationManager()
+    
     var phoneNumber: String = ""
     var username: String = ""
     var ID = ""
     
     var sceneLocationView = SceneLocationView()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +30,36 @@ class ARViewController: UIViewController {
         let url = "http://34.94.220.156/create_user"
         JSONData.POSTData(parameters: parameters, url: url,completion: { data in (JSON).self
             let ID = String(data["id"].int ?? -1)
-            // Do any additional setup after loading the view.
-            self.sceneLocationView.run()
-            self.view.addSubview(self.sceneLocationView)
+            // Do any additional setup after loading the view
+            
+            print(ID)
+            //  any additional setup after loading the view.
+            
             
         })
+        
+        self.sceneLocationView.run()
+        self.view.addSubview(self.sceneLocationView)
+        
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+
+        if CLLocationManager.locationServicesEnabled() {
+            self.locationManager.delegate = self
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            self.locationManager.startUpdatingLocation()
+        }
+
+        
 //        ID = RequestData.sendLoginInfo(username: username, phone: phoneNumber)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
     }
     
     override func viewDidLayoutSubviews() {
