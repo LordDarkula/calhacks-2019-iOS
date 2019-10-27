@@ -14,11 +14,14 @@ import CoreLocation
 class ARViewController: UIViewController {
     var phoneNumber: String = ""
     var username: String = ""
+    var ID = ""
     
     var sceneLocationView = SceneLocationView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        ID = RequestData.sendLoginInfo(username: username, phone: phoneNumber)
+        print(ID)
         // Do any additional setup after loading the view.
         sceneLocationView.run()
         view.addSubview(sceneLocationView)
