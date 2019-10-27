@@ -17,7 +17,9 @@ class FetchFriends: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     override init() {
         super.init()
-        load()
+        if UserDefaults.standard.string(forKey: "id") != "-1" {
+           load()
+        }
     }
     
     func load() {
@@ -33,19 +35,19 @@ class FetchFriends: NSObject, ObservableObject, CLLocationManagerDelegate {
             self.locationManager.startUpdatingLocation()
         }
         
+        
+        
         let parameters = [
             "current_user_id": UserDefaults.standard.string(forKey: "id"),
                 ]
-                let url = "http://34.94.220.156/get_all_users"
-                JSONData.POSTData(parameters: parameters, url: url,completion: { data in (JSON).self
-                    
-                    self.friends = [Friend]()
-                    for raw in data["friends"].arrayValue {
-                        var friend = Friend(name: raw["username"].string!, distance: raw["dist"].double!, imagePath: raw["image"].string!)
-                        self.friends.append(friend)
-                    }
-                   
-                })
+        let url = "http://34.94.220.156/get_all_users"
+        JSONData.POSTData(parameters: parameters, url: url,completion: { data in (JSON).self
+            self.friends = [Friend]()
+            for raw in data["friends"].arrayValue {
+                var friend = Friend(name: raw["username"].string!, distance: raw["dist"].double!, imagePath: raw["image"].string!)
+                self.friends.append(friend)
+            }
+        })
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -63,6 +65,7 @@ class FetchFriends: NSObject, ObservableObject, CLLocationManagerDelegate {
             
             print("status \(status)")
             //  any additional setup after loading the view.
+            self.load()
             
         })
         

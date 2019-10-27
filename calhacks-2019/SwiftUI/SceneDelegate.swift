@@ -21,11 +21,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view that provides the window contents.
         let contentView = ContentView()
+        let friendView = FriendSwiftUIView()
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
+            
             window.rootViewController = UIHostingController(rootView: contentView)
+//            if UserDefaults.standard.string(forKey: "id") == "-1" {
+//                window.rootViewController = UIHostingController(rootView: contentView)
+//            } else {
+//                window.rootViewController = UIHostingController(rootView: friendView)
+//            }
+            
             self.window = window
             window.makeKeyAndVisible()
         }

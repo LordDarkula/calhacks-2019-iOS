@@ -32,10 +32,11 @@ struct ContentView: View {
                     .foregroundColor(.white)
                     .padding(10)
                     .overlay(RoundedRectangle(cornerRadius:40).stroke(Color.green, lineWidth: 5)).onTapGesture {
-                        Login.login(number: self.phone_number, username: self.username, completion: { data in (JSON).self
+                        if self.username.count > 0 { Login.login(number: self.phone_number, username: self.username, completion: { data in (JSON).self
                                 self.action = 1
                             
                         })
+                        }
                 }
                 
                 
