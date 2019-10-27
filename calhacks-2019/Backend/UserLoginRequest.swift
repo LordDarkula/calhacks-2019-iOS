@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class RequestData {
     static func sendLoginInfo(username: String, phone: String)-> String {
@@ -16,15 +17,16 @@ class RequestData {
         var ID = ""
         
         let parameters = [
-            "name": received_username,
-            "phone_num": receive_phone_num
+            "username": received_username,
+            "phone_number": receive_phone_num
         ]
         
-        let url = "http://34.94.220.156/"
-        AF.request(url, method:.post, parameters:parameters,encoding: JSONEncoding.default).responseJSON { response in
+        let url = "http://34.94.220.156/create_user"
+        AF.request(url, method:.post, parameters:parameters,encoding: JSONEncoding.default).validate(contentType: ["application/json"]).responseString { response in
                     switch response.result {
                     case .success:
-                        ID = response.value as! String
+                        ID = String(JSON.init(parseJSON: response.value ?? "failed1")["id"].int ?? -1)
+                        print("ID: \(ID)")
                     case .failure(let error):
                          print(error)
                     }
