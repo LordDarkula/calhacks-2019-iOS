@@ -32,9 +32,9 @@ class ARViewController: UIViewController, CLLocationManagerDelegate {
             let ID = String(data["id"].int ?? -1)
             // Do any additional setup after loading the view
             
-            print(ID)
+            print("id: \(ID)")
             //  any additional setup after loading the view.
-            
+            UserDefaults.standard.set(ID, forKey: "id")
             
         })
         
@@ -60,6 +60,21 @@ class ARViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         print("locations = \(locValue.latitude) \(locValue.longitude)")
+        let parameters = [
+            "current_user_id": UserDefaults.standard.string(forKey: "id"),
+            "current_user_lat": String(locValue.latitude),
+            "current_user_long": String(locValue.latitude)
+        ]
+        let url = "http://34.94.220.156/save_user_loc"
+        JSONData.POSTData(parameters: parameters, url: url,completion: { data in (JSON).self
+            let status = String(data["status"].int ?? -1)
+            // Do any additional setup after loading the view
+            
+            print("status \(status)")
+            //  any additional setup after loading the view.
+            
+        })
+        
     }
     
     override func viewDidLayoutSubviews() {
