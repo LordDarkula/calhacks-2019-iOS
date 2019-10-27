@@ -13,9 +13,12 @@
 		87B2EE2D23650C65000BBF3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87B2EE2C23650C65000BBF3C /* Assets.xcassets */; };
 		87B2EE3023650C65000BBF3C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87B2EE2F23650C65000BBF3C /* Preview Assets.xcassets */; };
 		87B2EE3323650C65000BBF3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87B2EE3123650C65000BBF3C /* LaunchScreen.storyboard */; };
+		B3C84F8BF301EE2F1D6B9F87 /* Pods_calhacks_2019.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB954A80BF49411B51FFCD3C /* Pods_calhacks_2019.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		46C1AE8B25461999B76561C8 /* Pods-calhacks-2019.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-calhacks-2019.debug.xcconfig"; path = "Target Support Files/Pods-calhacks-2019/Pods-calhacks-2019.debug.xcconfig"; sourceTree = "<group>"; };
+		4E382F3D82C2697CE8CC8429 /* Pods-calhacks-2019.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-calhacks-2019.release.xcconfig"; path = "Target Support Files/Pods-calhacks-2019/Pods-calhacks-2019.release.xcconfig"; sourceTree = "<group>"; };
 		87B2EE2323650C64000BBF3C /* calhacks-2019.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "calhacks-2019.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87B2EE2623650C64000BBF3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87B2EE2823650C64000BBF3C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		87B2EE2F23650C65000BBF3C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		87B2EE3223650C65000BBF3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87B2EE3423650C65000BBF3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB954A80BF49411B51FFCD3C /* Pods_calhacks_2019.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_calhacks_2019.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3C84F8BF301EE2F1D6B9F87 /* Pods_calhacks_2019.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		173193C62F08B251164BC36A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				46C1AE8B25461999B76561C8 /* Pods-calhacks-2019.debug.xcconfig */,
+				4E382F3D82C2697CE8CC8429 /* Pods-calhacks-2019.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		87B2EE1A23650C64000BBF3C = {
 			isa = PBXGroup;
 			children = (
 				87B2EE2523650C64000BBF3C /* calhacks-2019 */,
 				87B2EE2423650C64000BBF3C /* Products */,
+				173193C62F08B251164BC36A /* Pods */,
+				D7792F2BBA51034E2FABB7D6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,6 +92,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		D7792F2BBA51034E2FABB7D6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB954A80BF49411B51FFCD3C /* Pods_calhacks_2019.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -82,9 +107,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 87B2EE3723650C65000BBF3C /* Build configuration list for PBXNativeTarget "calhacks-2019" */;
 			buildPhases = (
+				9946443B9D63B6C72F0A1942 /* [CP] Check Pods Manifest.lock */,
 				87B2EE1F23650C64000BBF3C /* Sources */,
 				87B2EE2023650C64000BBF3C /* Frameworks */,
 				87B2EE2123650C64000BBF3C /* Resources */,
+				167DF606D13A5B75C21895B8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -140,6 +167,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		167DF606D13A5B75C21895B8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-calhacks-2019/Pods-calhacks-2019-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-calhacks-2019/Pods-calhacks-2019-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-calhacks-2019/Pods-calhacks-2019-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9946443B9D63B6C72F0A1942 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-calhacks-2019-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		87B2EE1F23650C64000BBF3C /* Sources */ = {
@@ -282,6 +351,7 @@
 		};
 		87B2EE3823650C65000BBF3C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46C1AE8B25461999B76561C8 /* Pods-calhacks-2019.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -302,6 +372,7 @@
 		};
 		87B2EE3923650C65000BBF3C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E382F3D82C2697CE8CC8429 /* Pods-calhacks-2019.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
