@@ -9,7 +9,7 @@
 import UIKit
 import ARCL
 import CoreLocation
-
+import SwiftyJSON
 
 class ARViewController: UIViewController {
     var phoneNumber: String = ""
@@ -20,11 +20,19 @@ class ARViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ID = RequestData.sendLoginInfo(username: username, phone: phoneNumber)
-        print(ID)
-        // Do any additional setup after loading the view.
-        sceneLocationView.run()
-        view.addSubview(sceneLocationView)
+        let parameters = [
+            "username": username,
+            "phone_number": phoneNumber
+        ]
+        let url = "http://34.94.220.156/create_user"
+        JSONData.POSTData(parameters: parameters, url: url,completion: { data in (JSON).self
+            let ID = String(data["id"].int ?? -1)
+            // Do any additional setup after loading the view.
+            self.sceneLocationView.run()
+            self.view.addSubview(self.sceneLocationView)
+            
+        })
+//        ID = RequestData.sendLoginInfo(username: username, phone: phoneNumber)
     }
     
     override func viewDidLayoutSubviews() {

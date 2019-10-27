@@ -12,26 +12,20 @@ import SwiftyJSON
 
 class RequestData {
     static func sendLoginInfo(username: String, phone: String)-> String {
-        let received_username = username
-        let receive_phone_num = phone
-        var ID = ""
-        
         let parameters = [
-            "username": received_username,
-            "phone_number": receive_phone_num
+            "username": username,
+            "phone_number": phone
         ]
         
         let url = "http://34.94.220.156/create_user"
-        AF.request(url, method:.post, parameters:parameters,encoding: JSONEncoding.default).validate(contentType: ["application/json"]).responseString { response in
-                    switch response.result {
-                    case .success:
-                        ID = String(JSON.init(parseJSON: response.value ?? "failed1")["id"].int ?? -1)
-                        print("ID: \(ID)")
-                    case .failure(let error):
-                         print(error)
-                    }
-                }
-      
-        return ID
+//        let data: JSON = JSONData.POSTData(parameters: parameters, url: url,completion: (JSON) -> Void {
+//
+//        })
+//        print("JSON: \(data)")
+//        print("ID: \(data["id"])")
+//        let ID = String(data["id"].int ?? -1)
+        
+        
+        return ""
     }
 }
