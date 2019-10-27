@@ -8,19 +8,19 @@
 
 import SwiftUI
 
-
-
 struct ContentView: View {
-    @State var phone: String = ""
+    @State var phone_number: String = ""
     @State var username: String = ""
     var body: some View {
         NavigationView{
         VStack{
-            TextField("Enter your phone number", text: $phone)
+
+            TextField("Enter your phone number", text: $phone_number)
 .frame(maxWidth: 200, maxHeight: 75)
             TextField("Enter your username", text: $username)
                 .frame(maxWidth: 200, maxHeight: 75)
-            NavigationLink(destination: ARSwiftUIView(phoneNumber: phone, username: username)) {
+            NavigationLink(destination: ARSwiftUIView(phoneNumber: phone_number, username: username)) {
+ 
                 Text("Sign In")
                     .fontWeight(.bold)
                     .padding()

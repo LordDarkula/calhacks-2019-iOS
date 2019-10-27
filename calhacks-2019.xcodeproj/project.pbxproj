@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04D4543D23654D630021ED95 /* UserLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D4543C23654D630021ED95 /* UserLoginRequest.swift */; };
+
 		872A9D22236554A0000DCD23 /* ARSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872A9D21236554A0000DCD23 /* ARSwiftUIView.swift */; };
 		877A75172365336D00CAF8E0 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877A75162365336D00CAF8E0 /* ARViewController.swift */; };
 		87B2EE2723650C64000BBF3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B2EE2623650C64000BBF3C /* AppDelegate.swift */; };
@@ -19,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04D4543C23654D630021ED95 /* UserLoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginRequest.swift; sourceTree = "<group>"; };
 		46C1AE8B25461999B76561C8 /* Pods-calhacks-2019.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-calhacks-2019.debug.xcconfig"; path = "Target Support Files/Pods-calhacks-2019/Pods-calhacks-2019.debug.xcconfig"; sourceTree = "<group>"; };
 		4E382F3D82C2697CE8CC8429 /* Pods-calhacks-2019.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-calhacks-2019.release.xcconfig"; path = "Target Support Files/Pods-calhacks-2019/Pods-calhacks-2019.release.xcconfig"; sourceTree = "<group>"; };
 		872A9D21236554A0000DCD23 /* ARSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSwiftUIView.swift; sourceTree = "<group>"; };
@@ -46,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04D4543B23654CE90021ED95 /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				04D4543C23654D630021ED95 /* UserLoginRequest.swift */,
+			);
+			path = Backend;
+			sourceTree = "<group>";
+		};
 		173193C62F08B251164BC36A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +130,7 @@
 		87B2EE2523650C64000BBF3C /* calhacks-2019 */ = {
 			isa = PBXGroup;
 			children = (
+				04D4543B23654CE90021ED95 /* Backend */,
 				877A751B23654A2100CAF8E0 /* ViewControllers */,
 				877A7519236549FE00CAF8E0 /* Delegates */,
 				877A7518236549E400CAF8E0 /* SwiftUI */,
@@ -265,6 +277,7 @@
 				872A9D22236554A0000DCD23 /* ARSwiftUIView.swift in Sources */,
 				87B2EE2B23650C64000BBF3C /* ContentView.swift in Sources */,
 				877A75172365336D00CAF8E0 /* ARViewController.swift in Sources */,
+				04D4543D23654D630021ED95 /* UserLoginRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
