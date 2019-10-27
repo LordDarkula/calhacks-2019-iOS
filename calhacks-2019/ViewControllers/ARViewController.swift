@@ -15,7 +15,7 @@ class ARViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     
     var sceneLocationView = SceneLocationView()
-    
+    var friendId = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,27 +36,43 @@ class ARViewController: UIViewController, CLLocationManagerDelegate {
             self.locationManager.startUpdatingLocation()
         }
 
+    }
+    
+    func updatePath(current_lat: Double, current_long: Double, requested_lat: Double, requested_long: Double, bearing: Double) {
+        let request = MKDirections.Request()
+        request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: current_lat, longitude: current_long), addressDictionary: nil))
+        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: requested_lat, longitude: requested_long), addressDictionary: nil))
+        request.requestsAlternateRoutes = false
+        request.transportType = .autombile
         
-//        ID = RequestData.sendLoginInfo(username: username, phone: phoneNumber)
+        let directions = MKDirections(request: request)
+        directions.calculate { [unowned self] response, error in
+            guard let unwrappedResponse = response else { return }
+            let routes = unwrappedResponse.routes
+            self.sceneLocationView.removeAllNodes()
+            self.sceneLocationView.addRoutes(routes)
+        }
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         print("locations = \(locValue.latitude) \(locValue.longitude)")
-        let parameters = [
+        var parameters = [
             "current_user_id": UserDefaults.standard.string(forKey: "id"),
             "current_user_lat": String(locValue.latitude),
-            "current_user_long": String(locValue.latitude)
+            "current_user_long": String(locValue.longitude),
+            "requested_user_id": self.friendId
         ]
-        let url = "http://34.94.220.156/save_user_loc"
+        var url = "http://34.94.220.156/request_user_loc"
         JSONData.POSTData(parameters: parameters, url: url,completion: { data in (JSON).self
-            let status = String(data["status"].int ?? -1)
-            // Do any additional setup after loading the view
+            let requested_lat = data["requested_user_lat"].double!
+            let requested_long = data["requested_user_long"].double!
+            let bearing = data["bearing"].double!
             
-            print("status \(status)")
-            //  any additional setup after loading the view.
-            
+            self.updatePath(locValue.latitude, locValue.longitude, requested_lat, requested_long, bearing)
         })
+        
         
     }
     
