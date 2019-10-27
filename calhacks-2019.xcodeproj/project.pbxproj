@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		877A75172365336D00CAF8E0 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877A75162365336D00CAF8E0 /* ARViewController.swift */; };
 		87B2EE2723650C64000BBF3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B2EE2623650C64000BBF3C /* AppDelegate.swift */; };
 		87B2EE2923650C64000BBF3C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B2EE2823650C64000BBF3C /* SceneDelegate.swift */; };
 		87B2EE2B23650C64000BBF3C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B2EE2A23650C64000BBF3C /* ContentView.swift */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		46C1AE8B25461999B76561C8 /* Pods-calhacks-2019.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-calhacks-2019.debug.xcconfig"; path = "Target Support Files/Pods-calhacks-2019/Pods-calhacks-2019.debug.xcconfig"; sourceTree = "<group>"; };
 		4E382F3D82C2697CE8CC8429 /* Pods-calhacks-2019.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-calhacks-2019.release.xcconfig"; path = "Target Support Files/Pods-calhacks-2019/Pods-calhacks-2019.release.xcconfig"; sourceTree = "<group>"; };
+		877A75162365336D00CAF8E0 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		87B2EE2323650C64000BBF3C /* calhacks-2019.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "calhacks-2019.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87B2EE2623650C64000BBF3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87B2EE2823650C64000BBF3C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,8 +50,49 @@
 				46C1AE8B25461999B76561C8 /* Pods-calhacks-2019.debug.xcconfig */,
 				4E382F3D82C2697CE8CC8429 /* Pods-calhacks-2019.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		877A7518236549E400CAF8E0 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				87B2EE2823650C64000BBF3C /* SceneDelegate.swift */,
+				87B2EE2A23650C64000BBF3C /* ContentView.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		877A7519236549FE00CAF8E0 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				87B2EE2623650C64000BBF3C /* AppDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		877A751A23654A0F00CAF8E0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				87B2EE2C23650C65000BBF3C /* Assets.xcassets */,
+				87B2EE3423650C65000BBF3C /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		877A751B23654A2100CAF8E0 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				877A75162365336D00CAF8E0 /* ARViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		877A751C23654A3700CAF8E0 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				87B2EE3123650C65000BBF3C /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		87B2EE1A23650C64000BBF3C = {
@@ -73,12 +116,11 @@
 		87B2EE2523650C64000BBF3C /* calhacks-2019 */ = {
 			isa = PBXGroup;
 			children = (
-				87B2EE2623650C64000BBF3C /* AppDelegate.swift */,
-				87B2EE2823650C64000BBF3C /* SceneDelegate.swift */,
-				87B2EE2A23650C64000BBF3C /* ContentView.swift */,
-				87B2EE2C23650C65000BBF3C /* Assets.xcassets */,
-				87B2EE3123650C65000BBF3C /* LaunchScreen.storyboard */,
-				87B2EE3423650C65000BBF3C /* Info.plist */,
+				877A751B23654A2100CAF8E0 /* ViewControllers */,
+				877A7519236549FE00CAF8E0 /* Delegates */,
+				877A7518236549E400CAF8E0 /* SwiftUI */,
+				877A751A23654A0F00CAF8E0 /* Supporting Files */,
+				877A751C23654A3700CAF8E0 /* Storyboards */,
 				87B2EE2E23650C65000BBF3C /* Preview Content */,
 			);
 			path = "calhacks-2019";
@@ -218,6 +260,7 @@
 				87B2EE2723650C64000BBF3C /* AppDelegate.swift in Sources */,
 				87B2EE2923650C64000BBF3C /* SceneDelegate.swift in Sources */,
 				87B2EE2B23650C64000BBF3C /* ContentView.swift in Sources */,
+				877A75172365336D00CAF8E0 /* ARViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
